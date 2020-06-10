@@ -1,0 +1,13 @@
+## php_flag display_errors off
+RewriteEngine on
+AddType application/octet-stream .avi
+AddType application/octet-stream .pptx
+## php_value register_globals 1
+## php_value sendmail_path "/usr/sbin/sendmail -t -i -f admin@fm4you.pl"
+DirectoryIndex index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9_-]*)$ index.php?id1=$1
+RewriteRule ^([a-zA-Z-_0-9]+)_([a-zA-Z-_0-9]+)_([a-zA-Z-_0-9]+).html$ index.php?id1=$1&id2=$2&id3=$3
+RewriteRule ^([a-zA-Z-_0-9]+)_([a-zA-Z-_0-9]+).html$ index.php?id1=$1&id2=$2
+RewriteRule ^([a-zA-Z-_0-9]+).html$ index.php?id1=$1 

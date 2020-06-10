@@ -1,0 +1,22 @@
+﻿<?
+    function generowanie_hasła(){
+
+    $dlugosc_hasla ="100";
+
+      if($dlugosc_hasla < 6 || $dlugosc_hasla > 101) return "";
+      $dozwolone_znaki = "abcdefghijklmnoprstuwxyz";
+      $dozwolone_znaki .= "ABCDEFGHIJKLMNOPRSTUWXYZ";
+      $dozwolone_znaki .= "1234567890";
+      $haslo = "";
+      $generowanie = strlen($dozwolone_znaki) - 1;
+      for($i = 0; $i < $dlugosc_hasla; $i++){
+             $rand = rand(0, $generowanie);
+             $haslo .= $dozwolone_znaki[$rand];
+      }
+      return $haslo;
+    }
+    echo(generowanie_hasła(11));
+
+
+?>
+

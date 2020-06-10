@@ -1,0 +1,49 @@
+
+#form
+{
+    width: 600px;
+    margin: 0px auto;
+}
+#form table
+{
+    width: 600px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+}
+#form table tr:nth-child(odd)
+{
+    background: #f1f1f1;
+}
+#form table tr td
+{
+    padding: 5px;
+}
+
+#form table tr td[colspan]
+{
+    display: none;
+    font-weight: normal;
+    text-align: center;
+    color: #ff0000;
+}
+#form table tr td input[type=text]
+{
+    width: 350px;
+    padding: 8px;
+    background: #f1f1f1;
+    border: 1px solid #dddddd;
+}
+#form table tr td input[type=textarea]
+{
+    width: 350px;
+    padding: 8px;
+    background: #f1f1f1;
+    border: 1px solid #dddddd;
+}
+#form table tr td input[type=submit]
+{
+    width: 100px;
+    padding: 8px;
+    background: #f1f1f1;
+    border: 1px solid #dddddd;
+}

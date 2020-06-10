@@ -1,0 +1,13 @@
+<?php
+include('scr/class/start.php');
+session_start();
+error_reporting(-1);
+if(isset($_SESSION['admincms']))
+{
+    include('scr/inc/admincms.php');
+}
+else
+{
+    include('scr/inc/logintocms.php');
+}
+?>
