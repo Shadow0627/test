@@ -525,5 +525,37 @@ TD[class="buttonContent"] A {
         }
 
 
-    }
+	}
+	
+	public function loginadmin($email, $pass)
+	{
+		$sql = 'SELECT * FROM USER WHERE user_email = ? AND user_pass = ?';
+        $stmt = $this->db->prepare($sql);
+        $pass = sha1($pass);
+        $stmt->execute([$name, $pass]);
+        $return = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($stmt->rowcount() == 1)
+        {
+                if($return['user_type'] == 0)
+                {
+					$_SESSION['user_id'] = $return['user_id'];
+					$_SESSION['zalogowany'] = 'Nie';
+                    header('Refresh:0; url=../index.php');
+				}
+				else
+				{
+					$_SESSION['name'] = $return['user_relation_number'];
+					$_SESSION['zalogowany'] = 'Tak';
+					$_SESSION['user_id'] = $return['user_id'];
+					$_SESSION['admin'] = 15;
+					header("Refresh:0");
+				}
+            
+        }
+        else
+        {
+			$_SESSION['error'] = "błędne dane logowania !";
+			header('Location: ../index.php');
+        }
+	}
 }

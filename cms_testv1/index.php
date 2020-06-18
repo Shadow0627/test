@@ -1,13 +1,16 @@
-<?php
-include('scr/class/start.php');
+<?php 
+include('../src/class/init.php');
 session_start();
-error_reporting(-1);
-if(isset($_SESSION['admincms']))
+if(isset($_SESSION['admin']))
 {
-    include('scr/inc/admincms.php');
+    if($_SESSION['admin'] == 15)
+    {
+        include('../src/include/adminpanel.php');
+    }
 }
 else
-{
-    include('scr/inc/logintocms.php');
-}
+    {
+        include('../src/include/logintocms.php');
+    }
+
 ?>
